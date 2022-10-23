@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Abimostu的博客</title>
+    <link>https://gohugo-theme-ananke.pages.dev/blog/</link>
+    <description>Recent content in Blogs on Abimostu的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 23 Oct 2022 10:42:30 +0800</lastBuildDate><atom:link href="https://gohugo-theme-ananke.pages.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>定时任务</title>
+      <link>https://gohugo-theme-ananke.pages.dev/blog/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Sun, 23 Oct 2022 10:42:30 +0800</pubDate>
+      
+      <guid>https://gohugo-theme-ananke.pages.dev/blog/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <description>本文介绍java开发过程中如何实现定时任务。实现方式主要包括两种：一种是依赖spring的定时任务抽象；另一种使用Quartz实现。
+1. 方案对比     优点 缺点     Spring Scheduling 实现简单，spring项目直接集成 灵活性不足，开关定时任务等不便   Quartz 功能强大，支持集群以及所有定时任务相关功能 实现相对复杂，需要引入组件；集群需要数据库进行持久化    2. Spring Scheduling 2.1. TaskScheduler Abstraction 使用TaskScheduler 接口，其中最简单的就是schedule方法可以在未来的某一时间点执行task，这也是对于简单的5分钟后执行某操作一类需求的推荐方式。
+public interface TaskScheduler {   ScheduledFuture schedule(Runnable task, Trigger trigger);   ScheduledFuture schedule(Runnable task, Instant startTime);   ScheduledFuture schedule(Runnable task, Date startTime);   ScheduledFuture scheduleAtFixedRate(Runnable task, Instant startTime, Duration period);   ScheduledFuture scheduleAtFixedRate(Runnable task, Date startTime, long period);   ScheduledFuture scheduleAtFixedRate(Runnable task, Duration period);   ScheduledFuture scheduleAtFixedRate(Runnable task, long period);   ScheduledFuture scheduleWithFixedDelay(Runnable task, Instant startTime, Duration delay);   ScheduledFuture scheduleWithFixedDelay(Runnable task, Date startTime, long delay);   ScheduledFuture scheduleWithFixedDelay(Runnable task, Duration delay);   ScheduledFuture scheduleWithFixedDelay(Runnable task, long delay); } 2.</description>
+    </item>
+    
+  </channel>
+</rss>
